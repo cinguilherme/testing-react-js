@@ -1,4 +1,4 @@
-import { SAVE_COMMENT } from 'constants/constants';
+import { SAVE_COMMENT, FETCH_COMMENTS } from 'constants/constants';
 
 export default function (state = [], action) {
 
@@ -7,6 +7,12 @@ export default function (state = [], action) {
         case SAVE_COMMENT:
             return [...state, action.payload];
 
+        case FETCH_COMMENTS:
+            const comments = [];
+            action.payload.data.forEach(data => {
+                comments.push(data.name);
+            });
+            return [...state, ...comments];
         default:
             return state;
     }
