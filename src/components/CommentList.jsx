@@ -12,7 +12,7 @@ class CommentList extends Component {
     }
 
     buildList() {
-        if (this.props.comments != undefined) {
+        if (this.props.comments !== undefined) {
 
             return (
                 this.props.comments.map((comment, index) => {
